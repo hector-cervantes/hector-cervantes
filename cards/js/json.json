@@ -1,0 +1,28 @@
+var myObj = '{   "verb":{
+                            "be": {
+                                "present": "am, are",
+                                "third person": "is",
+                                "preterite": "was, were",
+                                "past participle": "been",
+                                "meaning": "ser, estar",
+                                "type": "irregular"
+                            },
+                            "have": {
+                                "present": "have",
+                                "third person": "has",
+                                "preterite": "had",
+                                "past participle": "had",
+                                "meaning": "tener, haber",
+                                "type": "irregular"
+                            },
+                            "know": {
+                                "present": "know",
+                                "third person": "knows",
+                                "preterite": "knew",
+                                "past participle": "known",
+                                "meaning": "saber, conocer",
+                                "type": "irregular"
+                            }
+                        }
+                
+            }'

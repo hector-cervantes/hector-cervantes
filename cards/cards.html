@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common verbs</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/cards.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="menu">
+        <div class="cerrar-menu">Close</div>
+        <div class="menu-opc">What to show?
+            <div class="cont-check">
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Present
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Third Person
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Preterite
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Past participle
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Meaning
+                </label>
+            </div>
+            <div class="cont-check">
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    First 100 verbs
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Another 100
+                </label>
+                <label class="container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    40 you added
+                </label>
+            </div>
+        </div>
+        <div class="menu-opc-2">Add verbs</div>
+        <div class="menu-opc-2">Verb list</div>
+    </div>
+    <div class="cont">
+        <img class="ham" src="img/open.png" alt="">
+        <div class="cont-card">
+            <h1></h1>
+            <div class="card">
+                <ul class="forms">
+                    <li class="dato-verbo">Present:<span></span></li>
+                    <li class="dato-verbo">Third person:<span></span></li>
+                    <li class="dato-verbo">Preterite:<span></span></li>
+                    <li class="dato-verbo">Past participle:<span></span></li>
+                    <li class="dato-verbo">Meaning:<span></span></li>
+                </ul>  
+                <div class="vuelta">
+                    <p class="verb"></p>
+                </div>
+            </div>
+            <div class="position">
+                <div class="square"></div>
+            </div>
+            <div class="cont-buttons">
+                <button class="previous">Previous</button>
+                <button class="next">Start</button>
+                <button class="shuffle">Shuffle</button>
+                <button class="eye">Uncover</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    
+
+        var commonVerbs = {   verb:{
+                                    be: {
+                                        infinitive: "to be",
+                                        present: "am, are",
+                                        thirdPerson: "is",
+                                        preterite: "was, were",
+                                        pastParticiple: "been",
+                                        meaning: "used to describe or give information about someone or something/ used to show that someone or something exists/ used to show the position of someone or something",
+                                        // eg: "I'm sorry I'm late./ They've been unlucky./ Be quiet!/ There were about fifty people at the party./ She's in the kitchen.",
+                                        type: "irregular"
+                                    },
+                                    have: {
+                                        infinitive: "to have",
+                                        present: "have",
+                                        thirdPerson: "has",
+                                        preterite: "had",
+                                        pastParticiple: "had",
+                                        meaning: "used when you are telling someone how to do something",
+                                        // eg: "You've got to type in your name, then your password.",
+                                        type: "irregular"
+                                    },
+                                    know: {
+                                        infinitive: "to know",
+                                        present: "know",
+                                        thirdPerson: "knows",
+                                        preterite: "knew",
+                                        pastParticiple: "known",
+                                        meaning: "to have knowledge or information about something in your mind",
+                                        // eg: "'How old is she?' 'I don't know.'/ Do you know where the station is?/ Do your parents know you smoke?",
+                                        type: "irregular"
+                                    },
+                                    see: {
+                                        infinitive: "to see",
+                                        present: "see",
+                                        thirdPerson: "sees",
+                                        preterite: "saw",
+                                        pastParticiple: "seen",
+                                        meaning: "to notice people and things with your eyes",
+                                        // eg: "Turn the light on so I can see.",
+                                        type: "irregular"
+                                    },
+                                    want: {
+                                        infinitive: "to want",
+                                        present: "want",
+                                        thirdPerson: "wants",
+                                        preterite: "wanted",
+                                        pastParticiple: "wanted",
+                                        meaning: "to hope to have or do something, or to wish for something",
+                                        // eg: "You can't always do what you want./ We can go later if you want./ I want him to explain why.",
+                                        type: "irregular"
+                                    },
+                                    do: {
+                                        infinitive: "to do",
+                                        present: "do",
+                                        thirdPerson: "does",
+                                        preterite: "did",
+                                        pastParticiple: "done",
+                                        meaning: "to perform an action or job",
+                                        // eg: "Go upstairs and do your homework./ What are you doing this weekend?/ What does she do? (= What is her job?)",
+                                        type: "irregular"
+                                    },
+                                    take: {
+                                        infinitive: "to take",
+                                        present: "take",
+                                        thirdPerson: "takes",
+                                        preterite: "took",
+                                        pastParticiple: "taken",
+                                        meaning: "to go somewhere with someone, often paying for them or being responsible for them",
+                                        // eg: "I took the kids to the park.",
+                                        type: "irregular"
+                                    },
+                                    use: {
+                                        infinitive: "to use",
+                                        present: "use",
+                                        thirdPerson: "uses",
+                                        preterite: "used",
+                                        pastParticiple: "used",
+                                        meaning: "If you use something, you do something with it for a particular purpose",
+                                        // eg: "Can I use your pen?/ I paid for the tickets using my credit card./ Staff are instructed not to use the telephones for personal calls.",
+                                        type: "regular"
+                                    },
+                                    provide: {
+                                        infinitive: "to provide",
+                                        present: "provide",
+                                        thirdPerson: "provides",
+                                        preterite: "provided",
+                                        pastParticiple: "provided",
+                                        meaning: "to supply something to someone",
+                                        // eg: "This booklet provides useful information about local services.",
+                                        type: "regular"
+                                    },
+                                    make: {
+                                        infinitive: "to make",
+                                        present: "make",
+                                        thirdPerson: "makes",
+                                        preterite: "made",
+                                        pastParticiple: "made",
+                                        meaning: "to produce or create something",
+                                        // eg: "Shall I make some coffee?/ They've made a film about her life.",
+                                        type: "irregular"
+                                    },
+                                    go: {
+                                        infinitive: "to go",
+                                        present: "go",
+                                        thirdPerson: "goes",
+                                        preterite: "went",
+                                        pastParticiple: "gone",
+                                        meaning: "to move or travel somewhere",
+                                        // eg: "I'd love to go to America./ We went into the house./ Are you going by train?",
+                                        type: "irregular"
+                                    },
+                                    get: {
+                                        infinitive: "to get",
+                                        present: "get",
+                                        thirdPerson: "gets",
+                                        preterite: "got",
+                                        pastParticiple: "got, gotten",
+                                        meaning: "to obtain or buy something",
+                                        // eg: "Great shoes. Where did you get them?/ I need to get some bread on the way home./ I'll try to get you a ticket.",
+                                        type: "irregular"
+                                    },
+                                    find: {
+                                        infinitive: "to find",
+                                        present: "find",
+                                        thirdPerson: "finds",
+                                        preterite: "found",
+                                        pastParticiple: "found",
+                                        meaning: "to discover something or someone that you have been searching for",
+                                        // eg: "I can't find my glasses and I've looked everywhere./ Police found the missing girl at a London railway station./ Has he found himself a place to live yet?",
+                                        type: "irregular"
+                                    },
+                                    say: {
+                                        infinitive: "to say",
+                                        present: "say",
+                                        thirdPerson: "says",
+                                        preterite: "said",
+                                        pastParticiple: "said",
+                                        meaning: "to speak words",
+                                        // eg: ""I'd like to go home," she said./ I couldn't hear what they were saying./ How do you say this word?",
+                                        type: "irregular"
+                                    },
+                                    tell: {
+                                        infinitive: "to tell",
+                                        present: "tell",
+                                        thirdPerson: "tells",
+                                        preterite: "told",
+                                        pastParticiple: "told",
+                                        meaning: "to say something to someone, usually giving them information",
+                                        // eg: "He told me about his new school./ Can you tell me what time the next bus leaves?",
+                                        type: "irregular"
+                                    },
+                                    support: {
+                                        infinitive: "to support",
+                                        present: "support",
+                                        thirdPerson: "supports",
+                                        preterite: "supported",
+                                        pastParticiple: "supported",
+                                        meaning: "to agree with an idea, group, or person",
+                                        // eg: "If she thinks Mike will support her plan, then she's seriously miscalculated./ There's no evidence to support his story.",
+                                        type: "regular"
+                                    },
+                                    need: {
+                                        infinitive: "to need",
+                                        present: "need",
+                                        thirdPerson: "needs",
+                                        preterite: "needed",
+                                        pastParticiple: "needed",
+                                        meaning: "If you need something, you must have it, and if you need to do something, you must do it",
+                                        // eg: "We need you to look after the children for us",
+                                        type: "regular"
+                                    },
+                                    give: {
+                                        infinitive: "to give",
+                                        present: "give",
+                                        thirdPerson: "gives",
+                                        preterite: "gave",
+                                        pastParticiple: "given",
+                                        meaning: "to provide someone with something",
+                                        // eg: "Her parents gave her a car for her birthday./ Do you give money to charity?/ Could you give me a lift to the station, please?",
+                                        type: "irregular"
+                                    },
+                                    help: {
+                                        infinitive: "to help",
+                                        present: "help",
+                                        thirdPerson: "helps",
+                                        preterite: "helped",
+                                        pastParticiple: "helped",
+                                        meaning: "to make it easier for someone to do something",
+                                        // eg: "Shall I help you to set the table?/ Could you help me lift this table, please?",
+                                        type: "regular"
+                                    },
+                                    include: {
+                                        infinitive: "to include",
+                                        present: "include",
+                                        thirdPerson: "includes",
+                                        preterite: "included",
+                                        pastParticiple: "included",
+                                        meaning: "to have something or someone as part of something larger or more general, such as a group, price, or process:",
+                                        // eg: "Please ensure that all examination papers have your name at the top.",
+                                        type: "regular"
+                                    },
+                                    come: {
+                                        infinitive: "to come",
+                                        present: "come",
+                                        thirdPerson: "comes",
+                                        preterite: "came",
+                                        pastParticiple: "come",
+                                        meaning: "to move or travel towards a person who is speaking or towards the place that they are speaking about",
+                                        // eg: "Come and see what I've done./ Can you come to my party?",
+                                        type: "irregular"
+                                    },
+                                    work: {
+                                        infinitive: "to work",
+                                        present: "work",
+                                        thirdPerson: "works",
+                                        preterite: "worked",
+                                        pastParticiple: "worked",
+                                        meaning: "to do a job, especially the job you do to earn money",
+                                        // eg: "He works as a waiter in an Italian restaurant./ Until recently he worked as a teacher.",
+                                        type: "regular"
+                                    },
+                                    ensure: {
+                                        infinitive: "to ensure",
+                                        present: "ensure",
+                                        thirdPerson: "ensures",
+                                        preterite: "ensured",
+                                        pastParticiple: "ensured",
+                                        meaning: "to make certain that something is done or happens",
+                                        // eg: "Please ensure that all examination papers have your name at the top.",
+                                        type: "regular"
+                                    },
+                                    improve: {
+                                        infinitive: "to improve",
+                                        present: "improve",
+                                        thirdPerson: "improves",
+                                        preterite: "improved",
+                                        pastParticiple: "improved",
+                                        meaning: "to get better or to make something better",
+                                        // eg: "Scott's behaviour has improved a lot lately.",
+                                        type: "regular"
+                                    },
+                                    put: {
+                                        infinitive: "to put",
+                                        present: "put",
+                                        thirdPerson: "puts",
+                                        preterite: "put",
+                                        pastParticiple: "put",
+                                        meaning: "to move something to a place or position",
+                                        // eg: "Where have you put the keys?/ She put her bag on the floor./ You can put your coat in the car.",
+                                        type: "irregular"
+                                    },
+                                    talk: {
+                                        infinitive: "to talk",
+                                        present: "talk",
+                                        thirdPerson: "talks",
+                                        preterite: "talked",
+                                        pastParticiple: "talked",
+                                        meaning: "to say things to someone",
+                                        // eg: "We were just talking about Simon's new girlfriend./ The teacher's always telling him to stop talking./ It was nice talking to you.",
+                                        type: "regular"
+                                    },
+                                    increase: {
+                                        infinitive: "to increase",
+                                        present: "increase",
+                                        thirdPerson: "increases",
+                                        preterite: "increaseed",
+                                        pastParticiple: "increaseed",
+                                        meaning: "to get bigger or to make something bigger in size or amount",
+                                        // eg: "Eating fatty food increases the risk of heart disease./ Exports of computers have increased by 15% since January.",
+                                        type: "regular"
+                                    },
+                                    ask: {
+                                        infinitive: "to ask",
+                                        present: "ask",
+                                        thirdPerson: "asks",
+                                        preterite: "asked",
+                                        pastParticiple: "asked",
+                                        meaning: "to say something to someone as a question that you want them to answer/ to say something to someone because you want them to do something/ to invite someone to do something",
+                                        // eg: "Can I ask you a few questions?/ He's asked for a bike for his birthday./ She asked him out to lunch the next day.",
+                                        type: "regular"
+                                    },
+                                    keep: {
+                                        infinitive: "to keep",
+                                        present: "keep",
+                                        thirdPerson: "keeps",
+                                        preterite: "kept",
+                                        pastParticiple: "kept",
+                                        meaning: "to have something permanently or for the whole of a period of time/ to regularly store something in a particular place/ to continue to do something, or to do something repeatedly",
+                                        // eg: "He borrowed my bike and kept it all week./ I think he keeps his keys in the desk drawer./ My diets never work, but I keep trying.",
+                                        type: "irregular"
+                                    },
+                                    allow: {
+                                        infinitive: "to allow",
+                                        present: "allow",
+                                        thirdPerson: "allows",
+                                        preterite: "allowed",
+                                        pastParticiple: "allowed",
+                                        meaning: "to give someone permission for something/ to not prevent something from happening",
+                                        // eg: "Smoking is not allowed in the restaurant./ They have allowed the problem to get worse.",
+                                        type: "regular"
+                                    },
+                                    reduce: {
+                                        infinitive: "to reduce",
+                                        present: "reduce",
+                                        thirdPerson: "reduces",
+                                        preterite: "reduced",
+                                        pastParticiple: "reduced",
+                                        meaning: "to make something less",
+                                        // eg: "Prices have been reduced by almost 50 percent./ The number of employees was reduced from 500 to 300./ Our society needs to reduce its dependence on the car.",
+                                        type: "regular"
+                                    },
+                                    call: {
+                                        infinitive: "to call",
+                                        present: "call",
+                                        thirdPerson: "calls",
+                                        preterite: "called",
+                                        pastParticiple: "called",
+                                        meaning: "to have a particular name/ to ask someone to come somewhere/ to telephone someone",
+                                        // eg: "What's your dog called?/ He was called to an emergency meeting./ He called me every night while he was away.",
+                                        type: "regular"
+                                    },
+                                    receive: {
+                                        infinitive: "to receive",
+                                        present: "receive",
+                                        thirdPerson: "receives",
+                                        preterite: "received",
+                                        pastParticiple: "received",
+                                        meaning: "to get something that someone has given or sent to you/ to react to a suggestion or piece of work in a particular way",
+                                        // eg: "Occasionally, he receives letters from fans./ His first book was not well received.",
+                                        type: "regular"
+                                    },
+                                    become: {
+                                        infinitive: "to become",
+                                        present: "become",
+                                        thirdPerson: "becomes",
+                                        preterite: "bacame",
+                                        pastParticiple: "become",
+                                        meaning: "to begin to be something/ something you say when you want to know what has happened to someone",
+                                        // eg: "They became great friends./ She wants to become a teacher when she leaves school./ Whatever became of your friend Harry?",
+                                        type: "irregular"
+                                    },
+                                    like: {
+                                        infinitive: "to like",
+                                        present: "like",
+                                        thirdPerson: "likes",
+                                        preterite: "liked",
+                                        pastParticiple: "liked",
+                                        meaning: "to enjoy something or feel that someone or something is pleasant/ to want something/ used to offer someone something/ used to say 'yes' when someone suggests a plan",
+                                        // eg: "Most kids like playing computer games./ I like to paint in my spare time./ I'd like to think about it./ Would you like a drink?/ "Shall I come?" "If you like."",
+                                        type: "regular"
+                                    },
+                                    create: {
+                                        infinitive: "to create",
+                                        present: "create",
+                                        thirdPerson: "creates",
+                                        preterite: "created",
+                                        pastParticiple: "created",
+                                        meaning: "to make something happen or exist",
+                                        // eg: "The project will create more than 500 jobs.",
+                                        type: "regular"
+                                    },
+                                    play: {
+                                        infinitive: "to play",
+                                        present: "play",
+                                        thirdPerson: "plays",
+                                        preterite: "played",
+                                        pastParticiple: "played",
+                                        meaning: "to take part in a sport or game/ to make music with a musical instrument/ If a radio, record, etc plays, it produces sounds, or if you play a radio, record, etc you make it produce sounds/ to be a character in a film or play/ to deceive someone as a joke",
+                                        // eg: "You play tennis, don't you Sam?/ Tim was playing the piano./ A radio was playing in the background./ Morgan played the father in the film version./ I played a trick on her and pretended we'd eaten all the food.",
+                                        type: "regular"
+                                    },
+                                    believe: {
+                                        infinitive: "to believe",
+                                        present: "believe",
+                                        thirdPerson: "believes",
+                                        preterite: "believed",
+                                        pastParticiple: "believed",
+                                        meaning: "to think that something is true, or that what someone says is true/ to think something, without being completely sure",
+                                        // eg: "Do you believe him?/ "Is he coming home tonight?" "I believe so."",
+                                        type: "regular"
+                                    },
+                                    promote: {
+                                        infinitive: "to promote",
+                                        present: "promote",
+                                        thirdPerson: "promotes",
+                                        preterite: "promoted",
+                                        pastParticiple: "promoted",
+                                        meaning: "to encourage something to happen or develop/ to advertise something/ to give someone a more important job in the same organization",
+                                        // eg: "To promote good health./ The band is promoting their new album./ She's just been promoted to manager.",
+                                        type: "regular"
+                                    },
+                                    protect: {
+                                        infinitive: "to protect",
+                                        present: "protect",
+                                        thirdPerson: "protects",
+                                        preterite: "protected",
+                                        pastParticiple: "protected",
+                                        meaning: "to keep someone or something safe from something dangerous or bad",
+                                        // eg: "It's important to protect your skin from the harmful effects of the sun./ Vitamin C may help protect against cancer.",
+                                        type: "regular"
+                                    },
+                                    change: {
+                                        infinitive: "to change",
+                                        present: "change",
+                                        thirdPerson: "changes",
+                                        preterite: "changed",
+                                        pastParticiple: "changed",
+                                        meaning: "to become different, or to make someone or something become different/ to take off your clothes and put on different ones/ to get or give someone money in exchange for money of a different type",
+                                        // eg: "I hadn't seen her for twenty years, but she hadn't changed a bit./ He changed out of his school uniform into jeans and a T-shirt./ Where can I change my dollars?",
+                                        type: "regular"
+                                    },
+                                    live: {
+                                        infinitive: "to live",
+                                        present: "live",
+                                        thirdPerson: "lives",
+                                        preterite: "lived",
+                                        pastParticiple: "lived",
+                                        meaning: "to be alive/ to have your home somewhere",
+                                        // eg: "She only lived a few days after the accident./ They live in New York./ Where do you live?",
+                                        type: "regular"
+                                    },
+                                    leave: {
+                                        infinitive: "to leave",
+                                        present: "leave",
+                                        thirdPerson: "leaves",
+                                        preterite: "left",
+                                        pastParticiple: "left",
+                                        meaning: "to go away from a place or a situation, either permanently or for a temporary period/ to end a relationship with a husband, wife, or partner and stop living with them/ to not take something with you when you go away from a place, either intentionally or by accident/ Why don't you leave your jacket in the car?/ to not use all of something",
+                                        // eg: "I'm leaving work early this afternoon./ She left school at 16./ If I don't leave now, I'll miss my train./ She left him for a younger man./ They'd drunk all the wine but they'd left some food./ Are there any biscuits left?",
+                                        type: "irregular"
+                                    },
+                                    prevent: {
+                                        infinitive: "to prevent",
+                                        present: "prevent",
+                                        thirdPerson: "prevents",
+                                        preterite: "prevented",
+                                        pastParticiple: "prevented",
+                                        meaning: "to stop something happening or to stop someone doing something/ ",
+                                        // eg: "There are now laws in place to prevent this from happening./ ",
+                                        type: "regular"
+                                    },
+                                    determine: {
+                                        infinitive: "to determine",
+                                        present: "determine",
+                                        thirdPerson: "determines",
+                                        preterite: "determined",
+                                        pastParticiple: "determined",
+                                        meaning: "to discover the facts or truth about something/ to decide what will happen",
+                                        // eg: "The doctors are still unable to determine what is wrong/ Her exam results will determine which university she goes to.",
+                                        type: "regular"
+                                    },
+                                    let: {
+                                        infinitive: "to let",
+                                        present: "let",
+                                        thirdPerson: "lets",
+                                        preterite: "let",
+                                        pastParticiple: "let",
+                                        meaning: "to allow someone to do something, or to allow something to happen/ to allow someone or something to move to a particular place/ If you let a building or part of a building, you allow someone to live there and they give you money",
+                                        // eg: "Let them play outside./ I won't let him near my children./ I let the top floor of my house to a student.",
+                                        type: "irregular"
+                                    },
+                                    meet: {
+                                        infinitive: "to meet",
+                                        present: "meet",
+                                        thirdPerson: "meets",
+                                        preterite: "met",
+                                        pastParticiple: "met",
+                                        meaning: "to come to the same place as someone else by arrangement or by chance/ to see and speak to someone for the first time/ to wait at a place for someone or something to arrive",
+                                        // eg: "We met for coffee last Sunday./ The board meets once a month./ I've always wanted to meet a movie star./ They met me at the airport.",
+                                        type: "irregular"
+                                    },
+                                    set: {
+                                        infinitive: "to set",
+                                        present: "set",
+                                        thirdPerson: "sets",
+                                        preterite: "set",
+                                        pastParticiple: "set",
+                                        meaning: "to arrange a time when something will happen/ to decide the level of something/ to press switches on a machine so that it will start when you want it to",
+                                        // eg: "Our next session is set for 5 April./ The interest rate has been set at 5%./ I've set the alarm for 6.30.",
+                                        type: "irregular"
+                                    },
+                                    understand: {
+                                        infinitive: "to understand",
+                                        present: "understand",
+                                        thirdPerson: "understands",
+                                        preterite: "understood",
+                                        pastParticiple: "understood",
+                                        meaning: "to know the meaning of something that someone says/ to know why or how something happens or works/ to know how someone feels or why they behave in a particular way",
+                                        // eg: "I don't understand half of what he says./ We still don't fully understand how the brain works./ I don't understand James sometimes./ I understand why she's so angry.",
+                                        type: "irregular"
+                                    },
+                                    develop: {
+                                        infinitive: "to develop",
+                                        present: "develop",
+                                        thirdPerson: "develops",
+                                        preterite: "developed",
+                                        pastParticiple: "developed",
+                                        meaning: "to grow or change and become more advanced, or to make someone or something do this/ to make something new such as a product",
+                                        // eg: "She's taking a course to develop her computer skills./ Scientists are developing new drugs all the time.",
+                                        type: "regular"
+                                    },
+                                    love: {
+                                        infinitive: "to love",
+                                        present: "love",
+                                        thirdPerson: "loves",
+                                        preterite: "loved",
+                                        pastParticiple: "loved",
+                                        meaning: "to like someone very much and have romantic or sexual feelings for them/ to like a friend or a person in your family very much/ to enjoy something very much or have a strong interest in something/ used to say that you would very much like to do something that someone is offering",
+                                        // eg: "Last night he told me he loved me./ I'm sure he loves his kids./ He loves his music./ "I wondered if you'd like to meet up sometime?" "I'd love to."",
+                                        type: "regular"
+                                    },
+                                    show: {
+                                        infinitive: "to show",
+                                        present: "show",
+                                        thirdPerson: "shows",
+                                        preterite: "showed",
+                                        pastParticiple: "showed",
+                                        meaning: "If numbers, results, facts, etc show something, they prove that it is true/ to let someone look at something",
+                                        // eg: "Research shows that 40% of the programme's viewers are aged over 55./ Show me your photos.",
+                                        type: "regular"
+                                    },
+                                    stop: {
+                                        infinitive: "to stop",
+                                        present: "stop",
+                                        thirdPerson: "stops",
+                                        preterite: "stopped",
+                                        pastParticiple: "stopped",
+                                        meaning: "to finish doing something that you were doing/ to stop a journey or an activity for a short time/ to not continue to operate, or to make something not continue to operate",
+                                        // eg: "Stop laughing - it's not funny./ He stopped at a pub for lunch./ My watch has stopped.",
+                                        type: "regular"
+                                    },
+                                    try: {
+                                        infinitive: "to try",
+                                        present: "try",
+                                        thirdPerson: "tries",
+                                        preterite: "tried",
+                                        pastParticiple: "tried",
+                                        meaning: "to attempt to do something/ to do, test, taste, etc something to discover if it works or if you like it",
+                                        // eg: "I tried to open the window but couldn't./ He tried the door, but the handle was broken.",
+                                        type: "regular"
+                                    },
+                                    look: {
+                                        infinitive: "to look",
+                                        present: "look",
+                                        thirdPerson: "looks",
+                                        preterite: "looked",
+                                        pastParticiple: "looked",
+                                        meaning: "to turn your eyes in the direction of something or someone so that you can see them/ to try to find someone or something/ used to describe the appearance of a person or thing/ used to say that something is likely to happen/ to plan to do something",
+                                        // eg: "Look at the picture on page two./ I'm looking for my keys./ That food looks nice./ You look tired, my love./ It looks as if he isn't coming./ I'm looking to start my own business.",
+                                        type: "regular"
+                                    },
+                                    consider: {
+                                        infinitive: "to consider",
+                                        present: "consider",
+                                        thirdPerson: "considers",
+                                        preterite: "considered",
+                                        pastParticiple: "considered",
+                                        meaning: "to think carefully about a decision or something you might do/ to think about particular facts when you are making a decision about something",
+                                        // eg: "Have you considered surgery?/ If you buy an old house, you have to consider the cost of repairs.",
+                                        type: "regular"
+                                    },
+                                    open: {
+                                        infinitive: "to open",
+                                        present: "open",
+                                        thirdPerson: "opens",
+                                        preterite: "opened",
+                                        pastParticiple: "opened",
+                                        meaning: "not closed or fastened",
+                                        // eg: "Is there a bottle of wine already open?",
+                                        type: "regular"
+                                    },
+                                    read: {
+                                        infinitive: "to read",
+                                        present: "read",
+                                        thirdPerson: "reads",
+                                        preterite: "read",
+                                        pastParticiple: "read",
+                                        meaning: "to look at words and understand what they mean",
+                                        // eg: "What was the last book you read?/ I've been reading about John F Kennedy.",
+                                        type: "irregular"
+                                    },
+                                    remain: {
+                                        infinitive: "to remain",
+                                        present: "remain",
+                                        thirdPerson: "remains",
+                                        preterite: "remained",
+                                        pastParticiple: "remained",
+                                        meaning: "to continue to exist when everything or everyone else has gone/ to continue to be in the same state",
+                                        // eg: "Only a few fragments of the original manuscript remain./ The exact date of the wedding remains a secret.",
+                                        type: "regular"
+                                    },
+                                    offer: {
+                                        infinitive: "to offer",
+                                        present: "offer",
+                                        thirdPerson: "offers",
+                                        preterite: "offered",
+                                        pastParticiple: "offered",
+                                        meaning: "to ask someone if they would like something/ to give or provide something",
+                                        // eg: "They offered me a job./ Someone should offer that old lady a seat./ to offer advice",
+                                        type: "regular"
+                                    },
+                                    stay: {
+                                        infinitive: "to stay",
+                                        present: "stay",
+                                        thirdPerson: "stays",
+                                        preterite: "stayed",
+                                        pastParticiple: "stayed",
+                                        meaning: "to continue to be in a place, job, etc and not leave/ to continue to be in a particular state",
+                                        // eg: "Personally, I'd rather stay at home and watch TV./ The supermarket stays open late.",
+                                        type: "regular"
+                                    },
+                                    pay: {
+                                        infinitive: "to pay",
+                                        present: "pay",
+                                        thirdPerson: "pays",
+                                        preterite: "paid",
+                                        pastParticiple: "paid",
+                                        meaning: "to give money to someone because you are buying something from them, or because you owe them money/ (pay attention) to look at or listen to someone or something carefully",
+                                        // eg: "Helen paid for the tickets./ Did you pay the telephone bill?/ You can pay by cash or credit card./ I missed what she was saying because I wasn't paying attention.",
+                                        type: "irregular"
+                                    },
+                                    strengthen: {
+                                        infinitive: "to strengthen",
+                                        present: "strengthen",
+                                        thirdPerson: "strengthens",
+                                        preterite: "strengthened",
+                                        pastParticiple: "strengthened",
+                                        meaning: "to become stronger or make something become stronger",
+                                        // eg: "exercises to strengthen the leg muscles",
+                                        type: "regular"
+                                    },
+                                    form: {
+                                        infinitive: "to form",
+                                        present: "form",
+                                        thirdPerson: "forms",
+                                        preterite: "formed",
+                                        pastParticiple: "formed",
+                                        meaning: "to begin to exist, or to make something begin to exist/ to take or to make something take a particular shape/ to make something by combining different parts",
+                                        // eg: "We are learning more about how stars are formed./ Hold hands and form a circle./ In English you form the present participle by adding -ing to the verb.",
+                                        type: "regular"
+                                    },
+                                    start: {
+                                        infinitive: "to start",
+                                        present: "start",
+                                        thirdPerson: "starts",
+                                        preterite: "started",
+                                        pastParticiple: "started",
+                                        meaning: "to begin doing something",
+                                        // eg: "He started smoking when he was eighteen.",
+                                        type: "regular"
+                                    },
+                                    establish: {
+                                        infinitive: "to establish",
+                                        present: "establish",
+                                        thirdPerson: "establishes",
+                                        preterite: "established",
+                                        pastParticiple: "established",
+                                        meaning: "to start a company or organization that will continue for a long time/ to find out information or prove something",
+                                        // eg: "The brewery was established in 1822./ The police are trying to establish how he died.",
+                                        type: "regular"
+                                    },
+                                    send: {
+                                        infinitive: "to send",
+                                        present: "send",
+                                        thirdPerson: "sends",
+                                        preterite: "sent",
+                                        pastParticiple: "sent",
+                                        meaning: "to arrange for something to go or be taken somewhere, especially by post",
+                                        // eg: "I sent him a letter last week./ Do you think we should send flowers?",
+                                        type: "irregular"
+                                    },
+                                    kill: {
+                                        infinitive: "to kill",
+                                        present: "kill",
+                                        thirdPerson: "kills",
+                                        preterite: "killed",
+                                        pastParticiple: "killed",
+                                        meaning: "to make someone or something die/ to stop an activity or experience completely/ to cause you a lot of pain or effort",
+                                        // eg: "Sunday's bomb killed 19 people./ Their son was killed in a road accident./ His remark killed the conversation./ My feet are killing me.",
+                                        type: "regular"
+                                    },
+                                    achieve: {
+                                        infinitive: "to achieve",
+                                        present: "achieve",
+                                        thirdPerson: "achieves",
+                                        preterite: "achieveed",
+                                        pastParticiple: "achieveed",
+                                        meaning: "to succeed in doing something good, usually by working hard",
+                                        // eg: "I've achieved my ambition/ I've been working all day but I feel I've achieved nothing.",
+                                        type: "regular"
+                                    },
+                                    bring: {
+                                        infinitive: "to bring",
+                                        present: "bring",
+                                        thirdPerson: "brings",
+                                        preterite: "brought",
+                                        pastParticiple: "brought",
+                                        meaning: "to take someone or something with you when you go somewhere",
+                                        // eg: "Did you bring an umbrella with you?",
+                                        type: "irregular"
+                                    },
+                                    hear: {
+                                        infinitive: "to hear",
+                                        present: "hear",
+                                        thirdPerson: "hears",
+                                        preterite: "heard",
+                                        pastParticiple: "heard",
+                                        meaning: "to be aware of a sound through your ears",
+                                        // eg: "I could hear his voice in the distance./ I can't hear - can you turn the sound up?",
+                                        type: "regular"
+                                    },
+                                    wait: {
+                                        infinitive: "to wait",
+                                        present: "wait",
+                                        thirdPerson: "waits",
+                                        preterite: "waited",
+                                        pastParticiple: "waited",
+                                        meaning: "to stay in a place until someone or something arrives or someone or something is ready for you",
+                                        // eg: "I'm waiting for Clive./ How long did you wait for a taxi?",
+                                        type: "regular"
+                                    },
+                                    avoid: {
+                                        infinitive: "to avoid",
+                                        present: "avoid",
+                                        thirdPerson: "avoids",
+                                        preterite: "avoided",
+                                        pastParticiple: "avoided",
+                                        meaning: "to stay away from a person, place, situation, etc/ to prevent something from happening/ to intentionally not do something",
+                                        // eg: "He's been avoiding me all week./ Book early to avoid disappointment./ Pierre braked to avoid hitting the dog./ She managed to avoid answering my question.",
+                                        type: "regular"
+                                    },
+                                    encourage: {
+                                        infinitive: "to encourage",
+                                        present: "encourage",
+                                        thirdPerson: "encourages",
+                                        preterite: "encouraged",
+                                        pastParticiple: "encouraged",
+                                        meaning: "to make someone more likely to do something, or make something more likely to happen/ to give someone confidence or hope",
+                                        // eg: "My parents encouraged me to try new things./ My parents encouraged me when things weren't going well at school.",
+                                        type: "regular"
+                                    },
+                                    hope: {
+                                        infinitive: "to hope",
+                                        present: "hope",
+                                        thirdPerson: "hopes",
+                                        preterite: "hoped",
+                                        pastParticiple: "hoped",
+                                        meaning: "to want something to happen or be true/ to intend to do something",
+                                        // eg: "I hope that the bus won't be late./ "Do you think it's going to rain?" "I hope not!"/ "Is he coming?" "I hope so."/ Dad hopes to retire next year.",
+                                        type: "regular"
+                                    },
+                                    add: {
+                                        infinitive: "to add",
+                                        present: "add",
+                                        thirdPerson: "adds",
+                                        preterite: "added",
+                                        pastParticiple: "added",
+                                        meaning: "to put something with something else/ to increase an amount or level/ to say another thing",
+                                        // eg: "Add the eggs to the cream./ Could you add apples to your shopping list?/ His voice just adds to his appeal./ She said she liked him but added that he was difficult to work with.",
+                                        type: "regular"
+                                    },
+                                    think: {
+                                        infinitive: "to think",
+                                        present: "think",
+                                        thirdPerson: "thinks",
+                                        preterite: "thought",
+                                        pastParticiple: "thought",
+                                        meaning: "to have an opinion about something or someone/ to consider an idea or a problem/ to believe that something is true, or to expect that something will happen, although you are not sure",
+                                        // eg: "I don't think that Emma will get the job (= I believe she will not get it)./ What did you think of the film?/ What do you think about modern art?/ He thought for a few seconds before answering./ I never thought that I would see Steven again.",
+                                        type: "irregular"
+                                    },
+                                    follow: {
+                                        infinitive: "to follow",
+                                        present: "follow",
+                                        thirdPerson: "follows",
+                                        preterite: "followed",
+                                        pastParticiple: "followed",
+                                        meaning: "to move behind someone or something and go where they go, sometimes secretly/ to happen or come after something/ to understand something",
+                                        // eg: "He employed a private detective to follow his wife./ The weeks that followed were the happiest days of my life./ Could you say that again? I didn't quite follow.",
+                                        type: "regular"
+                                    },
+                                    control: {
+                                        infinitive: "to control",
+                                        present: "control",
+                                        thirdPerson: "controls",
+                                        preterite: "controled",
+                                        pastParticiple: "controled",
+                                        meaning: "to make a person, organization, or object do what you want",
+                                        // eg: "A board of directors controls the company./ This switch controls the temperature./ Can't you control your dogs?",
+                                        type: "regular"
+                                    },
+                                    contribute: {
+                                        infinitive: "to contribute",
+                                        present: "contribute",
+                                        thirdPerson: "contributes",
+                                        preterite: "contributed",
+                                        pastParticiple: "contributed",
+                                        meaning: "to give something, especially money, in order to provide or achieve something together with other people/ to write articles for a newspaper, magazine, or book",
+                                        // eg: "I contributed $20 towards Andrea's present./ She contributes to several magazines.",
+                                        type: "regular"
+                                    },
+                                    produce: {
+                                        infinitive: "to produce",
+                                        present: "produce",
+                                        thirdPerson: "produces",
+                                        preterite: "produced",
+                                        pastParticiple: "produced",
+                                        meaning: "to make or grow something/ to cause a particular reaction or result",
+                                        // eg: "The factory produces about 900 cars a year./ Nuts produce an allergic reaction in some people.",
+                                        type: "regular"
+                                    },
+                                    maintain: {
+                                        infinitive: "to maintain",
+                                        present: "maintain",
+                                        thirdPerson: "maintains",
+                                        preterite: "maintained",
+                                        pastParticiple: "maintained",
+                                        meaning: "to make a situation or activity continue in the same way/ to keep a building or area in good condition",
+                                        // eg: "The army has been brought in to maintain order in the region./ A large house is very expensive to maintain.",
+                                        type: "regular"
+                                    },
+                                    speak: {
+                                        infinitive: "to speak",
+                                        present: "speak",
+                                        thirdPerson: "speaks",
+                                        preterite: "spoke",
+                                        pastParticiple: "spoken",
+                                        meaning: "to say something using your voice",
+                                        // eg: "to speak loudly/quietly/ There was complete silence - nobody spoke.",
+                                        type: "irregular"
+                                    },
+                                    complete: {
+                                        infinitive: "to complete",
+                                        present: "complete",
+                                        thirdPerson: "completes",
+                                        preterite: "completed",
+                                        pastParticiple: "completed",
+                                        meaning: "to finish doing or making something",
+                                        // eg: "The palace took 15 years to complete./ She will complete her studies in France.",
+                                        type: "regular"
+                                    },
+                                    choose: {
+                                        infinitive: "to choose",
+                                        present: "choose",
+                                        thirdPerson: "chooses",
+                                        preterite: "chose",
+                                        pastParticiple: "chosen",
+                                        meaning: "to decide which thing you want",
+                                        // eg: "They have to choose between earning a living or getting an education.",
+                                        type: "irregular"
+                                    },
+                                    thank: {
+                                        infinitive: "to thank",
+                                        present: "thank",
+                                        thirdPerson: "thanks",
+                                        preterite: "thanked",
+                                        pastParticiple: "thanked",
+                                        meaning: "to tell someone that you are grateful for something they have done or given you",
+                                        // eg: "I'd like to thank everyone who's helped me.",
+                                        type: "regular"
+                                    },
+                                    obtain: {
+                                        infinitive: "to obtain",
+                                        present: "obtain",
+                                        thirdPerson: "obtains",
+                                        preterite: "obtained",
+                                        pastParticiple: "obtained",
+                                        meaning: "to get something",
+                                        // eg: "to obtain permission/ He obtained a law degree from the University of California.",
+                                        type: "regular"
+                                    },
+                                    buy: {
+                                        infinitive: "to buy",
+                                        present: "buy",
+                                        thirdPerson: "buys",
+                                        preterite: "bought",
+                                        pastParticiple: "bought",
+                                        meaning: "to get something by paying money for it",
+                                        // eg: "I went out to buy some milk./ They bought their house for $1,000,000./ He bought me a camera for my birthday.",
+                                        type: "irregular"
+                                    },
+                                    implement: {
+                                        infinitive: "to implement",
+                                        present: "implement",
+                                        thirdPerson: "implements",
+                                        preterite: "implemented",
+                                        pastParticiple: "implemented",
+                                        meaning: "to make a law, system, plan, etc start to happen or operate",
+                                        // eg: "Our new computerized system will soon be fully implemented.",
+                                        type: "regular"
+                                    },
+                                    listen: {
+                                        infinitive: "to listen",
+                                        present: "listen",
+                                        thirdPerson: "listens",
+                                        preterite: "listened",
+                                        pastParticiple: "listened",
+                                        meaning: "to give attention to someone or something in order to hear them/ to accept someone's advice",
+                                        // eg: "She does all the talking - I just sit and listen./ I told you she wouldn't like it but you wouldn't listen to me!",
+                                        type: "regular"
+                                    },
+                                    participate: {
+                                        infinitive: "to participate",
+                                        present: "participate",
+                                        thirdPerson: "participates",
+                                        preterite: "participated",
+                                        pastParticiple: "participated",
+                                        meaning: "to be involved with other people in an activity",
+                                        // eg: "She rarely participates in any of the discussions.",
+                                        type: "regular"
+                                    },
+                                    address: {
+                                        infinitive: "to address",
+                                        present: "address",
+                                        thirdPerson: "addresses",
+                                        preterite: "addressed",
+                                        pastParticiple: "addressed",
+                                        meaning: "to write a name or address on an envelope or parcel",
+                                        // eg: "A parcel arrived addressed to Emma.",
+                                        type: "regular"
+                                    },
+                                    require: {
+                                        infinitive: "to require",
+                                        present: "require",
+                                        thirdPerson: "requires",
+                                        preterite: "required",
+                                        pastParticiple: "required",
+                                        meaning: "to need or demand something",
+                                        // eg: "Training to be a doctor requires a lot of hard work.",
+                                        type: "regular"
+                                    },
+                                    share: {
+                                        infinitive: "to share",
+                                        present: "share",
+                                        thirdPerson: "shares",
+                                        preterite: "shared",
+                                        pastParticiple: "shared",
+                                        meaning: "to have or use something at the same time as someone else/ to divide something between two or more people",
+                                        // eg: "She shares a house with Paul./ We shared a pizza and a bottle of wine./ We shared the cost of the wedding between us.",
+                                        type: "regular"
+                                    },
+                                    enhance: {
+                                        infinitive: "to enhance",
+                                        present: "enhance",
+                                        thirdPerson: "enhances",
+                                        preterite: "enhanced",
+                                        pastParticiple: "enhanced",
+                                        meaning: "to improve something",
+                                        // eg: "Winning that award greatly enhanced her reputation.",
+                                        type: "regular"
+                                    },
+                                    save: {
+                                        infinitive: "to save",
+                                        present: "save",
+                                        thirdPerson: "saves",
+                                        preterite: "saved",
+                                        pastParticiple: "saved",
+                                        meaning: "to stop someone or something from being killed or destroyed/ to keep money so that you can buy something with it in the future/ to keep something to use in the future",
+                                        // eg: "He was badly injured, but the doctors saved his life./ He had to borrow money to save his business./ We've saved almost $900 for our wedding./ I've saved some food for you./ She saved her black dress for special occasions.",
+                                        type: "regular"
+                                    },
+                                    wish: {
+                                        infinitive: "to wish",
+                                        present: "wish",
+                                        thirdPerson: "wishes",
+                                        preterite: "wished",
+                                        pastParticiple: "wished",
+                                        meaning: "to want a situation that is different from the one that exists/ used to say that you would like something to be true although you know it is not true",
+                                        // eg: "I wish that I didn't have to go to work./ I wish he would leave./ I wish I had been there./ "Have your exams finished yet?" "I wish!"",
+                                        type: "regular"
+                                    },
+                                    assist: {
+                                        infinitive: "to assist",
+                                        present: "assist",
+                                        thirdPerson: "assists",
+                                        preterite: "assisted",
+                                        pastParticiple: "assisted",
+                                        meaning: "to help",
+                                        // eg: "The army arrived to assist in the search./ He's assisting the police with their investigation.",
+                                        type: "regular"
+                                    },
+                                    note: {
+                                        infinitive: "to note",
+                                        present: "note",
+                                        thirdPerson: "notes",
+                                        preterite: "noted",
+                                        pastParticiple: "noted",
+                                        meaning: "to notice something/ to say or write something",
+                                        // eg: "She noted a distinct chill in the air./ We noted that their idea had never been tried./ In the article, she notes several cases of medical incompetence.",
+                                        type: "regular"
+                                    },
+                                    // : {
+                                    //     infinitive: "to ",
+                                    //     present: "",
+                                    //     thirdPerson: "s",
+                                    //     preterite: "ed",
+                                    //     pastParticiple: "ed",
+                                    //     meaning: "",
+                                    //     // eg: "",
+                                    //     type: "regular"
+                                    // },
+                                    finish: {
+                                        infinitive: "to finish",
+                                        present: "finish",
+                                        thirdPerson: "finishes",
+                                        preterite: "finished",
+                                        pastParticiple: "finished",
+                                        meaning: "to complete something, or come to the end of an activity",
+                                        // eg: "Do we have to finish this today?",
+                                        type: "regular"
+                                    }
+                                }
+                        };
+    
+    
+        $(document).ready(function(){
+            var widthMenu = - $(".menu").outerWidth() + "px";
+            $(".menu").css("left", widthMenu);
+
+            $(".cerrar-menu").click(function(){
+                console.log("hello");
+                $(".menu").animate({left: widthMenu});
+                $(".cont-card").animate({opacity: "1"});
+            });
+
+            $(".ham").click(function(){
+                $(".menu").animate({left: "0px"});
+                $(".cont-card").animate({opacity: "0.5"});
+            });
+            
+            $(".cont").click(function(){
+                if ($(".menu").css("left") == "0px") {
+                    $(".menu").animate({left: widthMenu});
+                    $(".cont-card").animate({opacity: "1"});
+                }
+            });
+
+            $("h1")[0].innerHTML = "Common verbs (" + numVerbs + ")";
+    
+            var heightCard = $( ".card" ).css('min-height', $( ".card" ).width());
+            // var heightCard = $( ".card" ).height($( ".card" ).width());
+            var secondCard = 0;
+    
+            $(".previous").click(function(){
+                
+                
+                if (secondCard <= 1) {
+                    $(".previous").css("opacity", ".3");
+                } else{
+                    $(".previous").css("opacity", "1");
+                    --secondCard;
+                    if (secondCard == 1) {
+                        $(".previous").css("opacity", ".3");
+                    }
+                    console.log(secondCard);
+                    addClassActive(secondCard -1); 
+                }
+    
+                console.log(numVerbs);
+                if (secondCard < numVerbs) {
+                    $(".next").css("opacity", "1"); 
+                }
+    
+                if (numeroDeTarjeta > 0) {
+                    --numeroDeTarjeta;
+                    $(".vuelta").css("opacity", "1"); 
+                    ponerDatos();           
+                }
+    
+            });
+    
+            $(".next").click(function(){
+                $(".next")[0].innerHTML = "Next";
+    
+                $(".shuffle").css("display", "initial");
+    
+                if (secondCard < numVerbs) {
+                    ++secondCard;    
+                }
+                
+                addClassActive(secondCard -1);
+    
+                if (secondCard <= 1) {
+                    $(".previous").css("display", "initial");
+                    $(".previous").css("opacity", ".3");
+                } else{
+                    $(".previous").css("display", "initial");
+                    $(".previous").css("opacity", "1");
+                }
+    
+                if (secondCard == numVerbs) {
+                    $(".next").css("opacity", ".3");
+                }         
+    
+                if (numeroDeTarjeta >= -1 && numeroDeTarjeta < (numVerbs -1)) {
+                    ++numeroDeTarjeta;
+                    $(".vuelta").css("opacity", "1",);
+                    $(".vuelta").css("background-image", "none");
+                    ponerDatos();
+                }
+    
+            });
+    
+            $(".shuffle").click(function(){
+                $(".vuelta").css("opacity", "1");
+                $(".vuelta").css("background-image", "none");
+                $(".previous").css("opacity", ".3");
+                $(".next").css("opacity", "1");
+                secondCard = 1;
+    
+                console.log(secondCard);
+                addClassActive(secondCard -1);
+                shuffle();
+                
+            });
+    
+            $(".vuelta").click(function(){
+                if (secondCard != 0) {
+                    flip();
+                }
+            });
+    
+            $(".eye").click(function (){
+                if ($(".vuelta").css("display") == "flex") {
+                    $(".vuelta").css("display", "none");
+                    $(".eye")[0].innerHTML = "cover";
+                } else if ($(".vuelta").css("display") == "none") {
+                    $(".vuelta").css("display", "flex");
+                    $(".eye")[0].innerHTML = "Uncover";
+                }
+            })
+    
+        });
+    
+        var numVerbs = Object.values(commonVerbs.verb)["length"]; 
+    
+        var numeroDeTarjeta = -1;
+        
+        function ponerDatos() {
+            
+            var arrayValores = ["present", "thirdPerson", "preterite", "pastParticiple", "meaning"];
+            
+            $(".verb")[0].innerHTML = Object.values(shuffleVerbs)[numeroDeTarjeta]["infinitive"];
+    
+            for (var i = 0; i <= arrayValores.length; ++i) {
+                $(".dato-verbo span")[i].innerHTML = Object.values(shuffleVerbs)[numeroDeTarjeta][arrayValores[i]];
+            }
+            
+        }
+    
+        var shuffleVerbs = commonVerbs.verb;
+    
+        function shuffle() {
+            shuffleVerbs = Object.values(commonVerbs.verb).sort(function() {return Math.random() - 0.5});
+            console.log(Object.values(shuffleVerbs));
+            numeroDeTarjeta = 0;
+            ponerDatos();
+        }
+    
+        function flip() {
+            if ($(".vuelta").css("opacity") == "1") {
+                $(".vuelta").css("opacity", "0");
+            } else{
+                $(".vuelta").css("opacity", "1");
+            }
+        }
+    
+    
+        var positionCuadro = $(".position")[0].innerHTML;
+        $(".position")[0].innerHTML = "";
+    
+        for (var i = 1; i <= numVerbs; ++i) {
+            $(".position").append(positionCuadro);
+        }
+        $(".position").children().attr("id", function (n) {
+            return "_" + n;
+        });
+    
+        function addClassActive(cual) {
+            $(".active").removeClass("active");
+            $("#_" + cual).addClass("active")
+        }
+        // $("button").click(function(){
+        //     $("p").addClass(function(n){
+        //     return "par_" + n;
+        //     });
+        // });
+    
+        // $(".ham").click(function(){
+        //     console.log("hello");
+        //     var widthMenu = - $(".menu").outerWidth() + "px";
+        //     $(".menu").animate({left: widthMenu});
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+*{
+	margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+.cont{
+	margin: 0 auto;
+    max-width: 768px;
+    max-height: 100vh;
+    border-radius: 20px;
+    background-color: #bcdef3;
+    width: 100%;
+    /* min-height: 640px; */
+    overflow: auto;
+}
+.nav{
+    padding: 10px 20px;
+    background-color:#8daeeb;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 768px;
+    max-height: 640px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.seccion{
+    width: 100%;
+}
+.ham{
+    cursor: pointer;
+}
+.num-venta{
+	padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000;
+}
+.cont-pagos{
+	margin-top: 41px;
+}
+.pagos{
+    animation-duration: 1s;
+    transition-timing-function: ease-in;
+}
+.tipo-pago{
+
+}
+.titulo{
+    padding: 10px 20px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    max-width: 768px;
+    color: #fff;
+    background-color: #006baf;
+}
+.pago{
+	padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.pago:nth-child(even){
+    background-color: #fff;
+}
+.deposito{
+    
+}
+.col-1{
+	width: 40%;
+}
+.col-1 div{
+    margin-bottom: 7px;
+}
+.col-2{
+    width: 30%;
+    border-left: 1px solid #000000;
+    padding-left: 7px;
+}
+.colum{
+	float: left;
+	box-sizing: border-box;
+}
+.colum-titulo{
+    float: right;
+	box-sizing: border-box;
+}
+.flecha{
+    position: absolute;
+    right: 20px;
+    transition-duration: .2s;
+}
+.estatus{
+    color:#26a926;
+}
+.estatus2{
+    color: #af2828;
+}
+iframe{
+    width: 70%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    max-width: 290px;
+}
+.col-1>div:not(:first-of-type) {
+    font-size: 12px;
+}

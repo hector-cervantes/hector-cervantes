@@ -1,0 +1,78 @@
+*{
+	margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+/* @font-face {
+	font-family: 'Modak', cursive;
+	src: url('Modak-Regular.ttf') format('truetype');
+	font-style: normal;
+} */
+@font-face {
+	font-family: 'Titan One', cursive;
+	src: url('TitanOne-Regular.ttf') format('truetype');
+	font-style: normal;
+}
+.cont{
+    margin: 0 auto;
+    max-width: 768px;
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    background-image: url(../img/deptos-color2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+}
+.titulo{
+    font-family: 'Titan One', cursive;
+    font-size: 50px;
+    text-align: center;
+    padding: 25px 0;
+    color:#5a719b;
+}
+.form{
+    padding: 10px 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    top: calc(50% - 250px);
+}
+.cont-form{
+    height: 100vh;
+    position: relative;
+    background-color:#bcdef366;
+    display: none;
+}
+.correo{
+    width: 200px;
+    padding: 7px 10px;
+    border: 1px solid #000000d9;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+.acceder{
+    border: none;
+    background-color: #8daeeb;
+    color: #000;
+    padding: 10px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+a{
+    color: #ffffff;
+    background-color: #006baf94;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+label{
+    width: 200px;
+}
+label, input{
+    margin: 4px auto 8px auto;
+    display: block;
+}

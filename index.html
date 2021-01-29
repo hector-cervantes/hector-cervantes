@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portafolio</title>
+		<link rel="stylesheet" type="text/css" href="css/portafolio.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Unna:ital@1&display=swap');
+        </style>
+		<script src="js/jquery.min.js"></script>
+        <script src="js/jquery-1.4.3.min.js"></script>
+	</head>
+	<body>
+		<div class="cont">
+            <div class="header">
+                <p class="hec">Héctor Cervantes</p> 
+                <div class="cont-menu">
+                    <div class="menu" onclick="posicionarVentana(0)">CV</div>
+                    <div class="menu" onclick="posicionarVentana(1)">Proyecto 1</div>
+                    <div class="menu" onclick="posicionarVentana(2)">Proyecto 2</div>
+                </div>
+            </div>
+            <div class="cetr">
+                <div class="cont-cv">
+                    <div id="descripcion" class="cv">
+                        <div id="nombre" class="titulo">Héctor Cervantes</div>
+                        <!-- <p class="parrafo">Soy diseñador gráfico y desarrollador web Front-end.<br>
+                            He trabajado los últimos años como desarrollador web tanto en la parte de creación y diseño de interfaces, como en la ejecución de código para Front-end.<br>
+                            Me describiría como un diseñador apto para unir ambos lados, el de la tecnología y el diseño. Disfruto trabajando en equipo con personas de diferentes disciplinas.<br>
+                            Me gusta diseñar pensando en crear nuevas y mejores maneras de interactuar con la tecnología.
+                        </p> -->
+                        <p class="parrafo">Soy diseñador gráfico y desarrollador web Front-end.</p>
+                        <p class="parrafo">He trabajado los últimos años como desarrollador web tanto en la parte de creación y diseño de interfaces, como en la ejecución de código para Front-end.</p>
+                        <p class="parrafo">Me describiría como un diseñador apto para unir ambos lados, el de la tecnología y el diseño. Disfruto trabajando en equipo con personas de diferentes disciplinas.</p>
+                        <p class="parrafo">Me gusta diseñar pensando en crear nuevas y mejores maneras de interactuar con la tecnología.</p>
+                    </div>
+                    <div class="cv">
+                        <div class="titulo">Experiencia</div>
+                        <p id="experiencia" class="parrafo">Diseñador y desarrollador web front-end en Codesign Digital Intelligence
+                            <br>Mayo 2017- abril 2020
+                        </p>
+                        <ul>
+                            <li>
+                                <p class="parrafo">Desarrollador web front-end</p>
+                                <p class="parrafo">Definir el proyecto, planear su contenido y guiar el aspecto gráfico.<br>
+                                    Planear el flujo y diseñar interfaces.<br>
+                                    Transformar el layout en código html, css y javascript.
+                                </p>
+                            </li>
+                        </ul>
+                        <p class="titulo">Educación</p>
+                        <p class="parrafo">Universidad Autónoma Metropolitana<br>
+                            Licenciatura en Diseño de la Comunicación Gráfica                    
+                        </p>
+                    </div>
+                    <div id="habilidad" class="cv">
+                        <div class="titulo">Habilidades</div>
+                        <p class="parrafo">Diseño UX</p>
+                        <ul>
+                            <li>Wireframes</li>
+                            <li>Prototipos (Adobe XD)
+                        </ul>
+                        <p class="parrafo">Personalidad</p>
+                        <ul>
+                            <li>Analítico</li>
+                            <li>Metódico</li>
+                            <li>Propositivo</li>
+                        </ul>
+                        <p class="parrafo">Herramientas</p>
+                        <ul>
+                            <li>Photoshop</li>
+                            <li>Illustrator</li>
+                            <li>Indesign</li>
+                            <li>Html</li>
+                            <li>Css</li>
+                            <li>Javascript (básico)</li>
+                        </ul>
+                        <p class="parrafo"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="proyecto1" class="cont-proyecto">
+                <div class="intro">
+                    <div class="proyecto">Revalia</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse finibus non purus lacinia sollicitudin. Pellentesque tempor turpis id lobortis aliquet. Nam eget felis non ex.</p> 
+                </div>
+                <div class="cont-par">
+                    <div class="captura">
+                        <img src="img/capturas/home-1.PNG" alt="">
+                    </div>
+                    <div class="captura">
+                        <img src="img/capturas/home-2.PNG" alt="">
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <div class="txt-descripcion"></div>
+                    <div class="txt-descripcion">
+                        <p class="p-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse finibus non purus lacinia sollicitudin. Pellentesque tempor turpis id lobortis aliquet. Nam eget felis non ex.</p>
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <!-- <div class="captura">
+                        <img src="img/capturas/home-3.PNG" alt="">
+                    </div> -->
+                    <div class="captura">
+                        <iframe class="cont-revalia" src="dep/estado-de-cuenta.html" frameborder="0"></iframe>
+                    </div>
+                    <div class="captura">
+                        <img src="img/capturas/home-4.PNG" alt="">
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <div class="captura">
+                        <img src="img/capturas/home-5.PNG" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="proyecto2" class="cont-proyecto">
+                <div class="intro">
+                    <div class="proyecto">So Far</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse finibus non purus lacinia sollicitudin. Pellentesque tempor turpis id lobortis aliquet. Nam eget felis non ex.</p> 
+                </div>
+                <div class="cont-par">
+                    <div class="captura">
+                        <img src="img/capturas/cards-1.PNG" alt="">
+                    </div>
+                    <div class="captura">
+                        <img src="img/capturas/cards-2.PNG" alt="">
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <div class="txt-descripcion">
+                        <p class="p-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse finibus non purus lacinia sollicitudin. Pellentesque tempor turpis id lobortis aliquet. Nam eget felis non ex.</p></div>
+                    <div class="txt-descripcion">
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <!-- <div class="captura">
+                        <img src="img/capturas/cards-3.PNG" alt="">
+                    </div> -->
+                    <div class="captura">
+                        <iframe class="cont-cards" src="cards/cards.html" frameborder="0"></iframe>
+                    </div>
+                    <div class="captura">
+                        <img src="img/capturas/cards-4.PNG" alt="">
+                    </div>
+                </div>
+                <div class="cont-par">
+                    <div class="captura">
+                        <img src="img/capturas/cards-5.PNG" alt="">
+                    </div>
+                    <div class="captura">
+                        <img src="img/capturas/cards-6.PNG" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("resize", tamanioIframe);
+
+            $(document).ready(function () {
+                tamanioIframe();
+            });
+
+            
+            function tamanioIframe() {
+                var ancho = $(".captura img").width();
+                var alto = $(".captura img").height();
+
+                $(".cont-revalia").width(ancho);
+                $(".cont-revalia").height(alto);
+
+                $(".cont-cards").width(ancho);
+                $(".cont-cards").height(alto);
+
+                $('.cont-revalia').contentWindow.location.reload(true);
+                $('.cont-cards').contentWindow.location.reload(true);
+            }
+
+            function posicionarVentana(posicion){
+                var menu; 
+
+                switch (posicion) {
+                    case 0:
+                        menu = 0;
+                        console.log("cv");
+                        break;
+                    case 1:
+                        menu = $("#proyecto1").offset().top;
+                        console.log("1");
+                        break;
+                    case 2:
+                        menu = $("#proyecto2").offset().top;
+                        console.log("2");
+                }
+
+                window.scroll({
+                    top: menu,
+                    left: 0,
+                    behavior: "smooth",
+                })
+
+                console.log(menu);
+            }
+		</script>
+	</body>
+</html>
