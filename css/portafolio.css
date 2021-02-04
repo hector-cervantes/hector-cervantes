@@ -122,11 +122,18 @@
     width: calc(50% - 2px);
     box-sizing: border-box;
     display: inline-block;
+    position: relative;
+}
+.cont-reload{
+    position: absolute;
+    width: 100%;
+    top: -40px;
 }
 .p-aviso{
     color: #828282;
     text-align: center;
     padding-bottom: 7px;
+    font-size: 12px;
 }
 .reload{
     padding: 4px 15px;
@@ -138,6 +145,7 @@
     width: 65px;
     text-align: center;
     cursor: pointer;
+    font-size: 12px;
 }
 .captura{
     width: calc(50% - 2px);
@@ -191,6 +199,9 @@
 @media only screen and (max-width: 768px) {
     .txt-descripcion {
         width: 100%;
+    }
+    .cont-reload{
+        top: -80px;
     }
     .captura img {
         max-width: 100%;
