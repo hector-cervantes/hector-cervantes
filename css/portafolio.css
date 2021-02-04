@@ -105,9 +105,15 @@
     margin: 20px 0;
 }
 .proyecto{
-    font-weight: 400;
+    font-weight: bold;
     font-size: 2em;
     margin: 30px 0 3px 0;
+}
+#revalia{
+    color: #8daeeb;
+}
+#sofar{
+    color: #e20612;
 }
 .cont-par{
     padding-bottom: 40px;
