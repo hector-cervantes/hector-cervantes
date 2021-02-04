@@ -139,7 +139,8 @@
     display: block;
 }
 .p-descripcion{
-    max-width: 350px;
+    /* max-width: 350px; */
+    max-width: 380px;
     padding-left: 20px;
     border-left: 4px solid #e35418;
     margin-bottom: 40px;
