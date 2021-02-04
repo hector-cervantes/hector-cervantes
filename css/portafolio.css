@@ -123,6 +123,22 @@
     box-sizing: border-box;
     display: inline-block;
 }
+.p-aviso{
+    color: #828282;
+    text-align: center;
+    padding-bottom: 7px;
+}
+.reload{
+    padding: 4px 15px;
+    background-color: #cacaca;
+    border-radius: 5px;
+    display: block;
+    color: #828282;
+    margin: 0 auto;
+    width: 65px;
+    text-align: center;
+    cursor: pointer;
+}
 .captura{
     width: calc(50% - 2px);
     display: inline-block;
